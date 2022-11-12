@@ -5,10 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        :root{
+            --btn-bg: #ff0000;
+            --btn-fg: #fff;
+        }
+        body{
+            height: 100vh;
+            background-color: blue;
+            background: url('https://www.collinsdictionary.com/images/full/royalblue_372859843_1000.jpg');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+        h1{
+            color: white;
+            margin-top: 15px;
+        }
+        #d1{
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        
+        }
+        .btn{
+            display: flex;
+            width: 134px;
+            height: 134px;
+            border-radius: 50%;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            color: var(--btn-fg);
+            background-color: var(--btn-bg);
+            border: 2px solid white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
     <center>
-        Welcome to CodeLuv
+        <h1>Welcome To CodeLuv</h1> 
+        <br><br>
+        <div id="d1">
+            <a class="btn" href="/CP/" target="_blank"> Competitive Programing </a>
+            <a class="btn" style="--btn-bg: yellow; --btn-fg:#000;" href="/TA/" target="_blank"> Tech Articles </a>
+            <a class="btn" style="--btn-bg: #26ea20; --btn-fg:#000;" href="/WG/" target="_blank"> Web Games </a>
+        </div>
+
     </center>
     
 </body>
