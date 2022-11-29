@@ -10,6 +10,7 @@
             padding: 0;
             margin: 0;
             background-color: black;
+            overflow: hidden;
         }
         h1{
             margin: 10px;
@@ -71,7 +72,7 @@
     <h1> Diwali Vibes </h1>
     <div id="s1"> 
         <div id="sd1">
-            <img src="/d/IMG_1116.jpg" id="image">
+            <img src="d/IMG_1116.jpg" id="image">
             <!-- <img src="./d/IMG_1275.jpg" -->
         </div>
     </div>
@@ -89,7 +90,6 @@
     const image = document.getElementById("image");
     const imageSrcs = ["./d/IMG_1116.jpg","./d/IMG_1211.jpg","./d/IMG_1275.jpg","./d/IMG_1278.jpg","./d/IMG_1286.jpg","./d/IMG_1304.jpg","./d/IMG_1305.jpg","./d/IMG_1317.jpg","./d/IMG_1324.jpg","./d/IMG_1332.jpg","./d/IMG_1337.jpg","./d/IMG_1340.jpg","./d/IMG_3094.jpg","./d/IMG_3096.jpg"]
     let currentImage = 0;
-
         
     function fun(){
         if(currentImage==0){
@@ -110,5 +110,12 @@
        }
        image.src = imageSrcs[currentImage];
     }
+    document.body.addEventListener('keydown',function(e){
+        console.log(e.keyCode);
+        if(e.keyCode == 37)
+            fun();
+        else if(e.keyCode == 39)
+            fun1();
+    })
 </script>
 </html>
