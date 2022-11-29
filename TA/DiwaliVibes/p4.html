@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diwali 2K22</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            background-color: black;
+        }
+        h1{
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+        #s1{
+            margin: 20px;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid red;
+
+        }
+        #s2{
+            background-color: transparent;
+            position: fixed;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 50px;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            /* border: 2px solid red; */
+
+        }
+        button{
+            cursor: pointer;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+        button:hover{
+            background-color: yellow;
+            color: red;
+        }
+        .sw1{
+            font-size: 70px;
+            text-align: center;
+            color: white;
+        }
+
+        #image{
+            width: 500px;
+            height: 700px;
+            object-fit: cover ;
+            background-color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+    <h1> Diwali Vibes </h1>
+    <div id="s1"> 
+        <div id="sd1">
+            <img src="/d/IMG_1116.jpg" id="image">
+            <!-- <img src="./d/IMG_1275.jpg" -->
+        </div>
+    </div>
+    <div>
+        <div id="s2">
+
+            <button class="sw1" onClick="fun()"> &gt; </button>
+            <button class="sw1" onClick="fun1()"> &lt; </button>
+        </div>
+    </div>
+
+    
+</body>
+<script>
+    const image = document.getElementById("image");
+    const imageSrcs = ["./d/IMG_1116.jpg","./d/IMG_1211.jpg","./d/IMG_1275.jpg","./d/IMG_1278.jpg","./d/IMG_1286.jpg","./d/IMG_1304.jpg","./d/IMG_1305.jpg","./d/IMG_1317.jpg","./d/IMG_1324.jpg","./d/IMG_1332.jpg","./d/IMG_1337.jpg","./d/IMG_1340.jpg","./d/IMG_3094.jpg","./d/IMG_3096.jpg"]
+    let currentImage = 0;
+
+        
+    function fun(){
+        if(currentImage==0){
+            currentImage = imageSrcs.length- 1;
+        }
+        else{
+            currentImage--;
+        }
+        image.src = imageSrcs[currentImage];
+
+    }
+    function fun1(){
+       if(currentImage== imageSrcs.length- 1){
+        currentImage = 0;
+       }
+       else{
+        currentImage++;
+       }
+       image.src = imageSrcs[currentImage];
+    }
+</script>
+</html>
