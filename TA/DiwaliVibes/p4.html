@@ -110,11 +110,11 @@
        }
        image.src = imageSrcs[currentImage];
     }
-    document.body.addEventListener('keydown',function(e){
+    document.body.addEventListener('keyup',function(e){
         console.log(e.keyCode);
-        if(e.keyCode == 37)
+        if(e.keyCode == 37 || e.keyCode == 38)
             fun();
-        else if(e.keyCode == 39)
+        else if(e.keyCode == 39 || e.keyCode == 40)
             fun1();
     })
 </script>
