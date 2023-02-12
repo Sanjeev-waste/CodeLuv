@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(25, 197, 236);
+        }
+        .sw{
+            display: flex;
+            /* flex-direction: column; */
+            align-items: center;
+            /* justify-content: space-around; */
+            border: 2px solid red;
+        }
+        #sw1{
+
+            margin-left: 50px;
+            margin-top: 140px;
+            /* margin: 20vh; */
+            width: 740px;
+            background-color: brown;
+            border: 12px soild red;
+        }
+        #s1{
+            background-color: orange;
+            height: 166px;
+        }
+        #s2{
+            padding: 30px;
+            background-color: white;
+            height: 166px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #s2 img{
+            animation: wheelRotate 26s linear infinite;
+        }
+
+        @keyframes wheelRotate {
+            from{
+                rotate: 0deg;
+            }
+
+            to{
+                rotate: 360deg;
+            }
+        }
+        #s3{
+            background-color: green;
+            height: 166px;
+        }
+
+        #lyrics{
+            margin: 40px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="sw">
+
+        <div id="sw1">
+            <div id="s1"></div>
+            <div id="s2">
+                <img src="National/ck.png" height="196px">
+            </div>
+            <div id="s3"></div>
+        </div>
+        <div>
+            <div id="song">
+                <audio controls>
+                    <source src="National/Anthem.mp3">
+                </audio>
+            </div>
+            <div id="lyrics">
+                    Jano Gano Mano Adhinaayako Jayo Hey,<br>
+                    Bhaarato Bhaagyo Bidhaataa<br><br>
+
+                    Panjaabo Sindhu Gujaraato Maraathaa,<br>
+                    Draabiro Utkalo Bango<br><br>
+
+                    Bindhyo Himaachalo Jamunaa Gangaa,<br>
+                    Uchchhalo Jalodhi Tarango<br><br>
+
+                    Tabo Shubho Naamey Jaagey,<br>
+                    Tabo Shubho Aashisho Maagey Gaahey Tabo Jayogaathaa<br><br>
+
+                    Jano Gano Mangalo Daayako,<br>
+                    Jayo Hey Bhaarato Bhaagyo Bidhaataa<br><br>
+
+                    Jayo Hey, Jayo Hey, Jayo Hey,<br>
+                    Jayo Jayo Jayo, Jayo Hey<br>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    
+    </script>
+</body>
+</html>
