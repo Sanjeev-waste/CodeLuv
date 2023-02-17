@@ -18,6 +18,7 @@
             height: 100vh;
             background-color: blue;
             background: url('https://www.collinsdictionary.com/images/full/royalblue_372859843_1000.jpg');
+            
             background-size: 100% 100%;
             background-repeat: no-repeat;
         }
@@ -33,7 +34,7 @@
         }
         #d2{
             display: flex;
-            height: 500px;
+            height: 50px;
             justify-content: center;
             align-items: center;
             border: 2px solid red;
@@ -53,6 +54,10 @@
             font-weight: bold;
             text-decoration: none;
         }
+        #anim_walk{
+            width: 1200px;
+            /* background-color: #26ea20; */
+        }
     </style>
 </head>
 <body>
@@ -64,14 +69,19 @@
             <a class="btn" style="--btn-bg: yellow; --btn-fg:#000;" href="TA/" target="_blank"> Tech Articles </a>
             <a class="btn" style="--btn-bg: #26ea20; --btn-fg:#000;" href="WG/" target="_blank"> Web Games </a>
         </div>
-        <div id="d2">
-            <div>
+        <div >
+            <div id="d2">
                 Choose Your Interest
             </div>
+            <div>
+                <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_jhaabiai.json" id="anim_walk" background="transparent"  speed="1"    loop autoplay></lottie-player>
+            </div>
+
 
         </div>
 
     </center>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     
 </body>
 </html>

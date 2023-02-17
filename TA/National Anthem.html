@@ -26,8 +26,6 @@
             margin-top: 140px;
             /* margin: 20vh; */
             width: 740px;
-            background-color: brown;
-            border: 12px soild red;
         }
         #s1{
             background-color: orange;
@@ -72,13 +70,27 @@
             width: 50px;
             cursor: pointer;
         }
+
+        rect{
+            fill: transparent;
+        }
+
+        .lootie_anim{
+            background-color: black;
+            border-radius: 300px;
+        }
     </style>
 </head>
 <body>
     <h1>Our National Anthem</h1>
+    <div style="height: 300px;">
+        <lottie-player class="lootie_anim" src="https://assets6.lottiefiles.com/packages/lf20_R9r5ng79C0.json"  background="transparent"  speed="1"  style="width: 100%; height: 100%;"  loop autoplay></lottie-player>
+    </div>
+    
     <div class="sw">
 
         <div id="sw1">
+           
             <div id="s1"></div>
             <div id="s2">
                 <img src="National/ck.png" height="196px">
@@ -117,11 +129,18 @@
             <img src="National/salute.png" alt="">
         </span>
     </div>
-
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script>
         const anthem_audio = document.querySelector("#anthem_audio");
         const play_pause = document.querySelector("#play-pause");
         let play = true;
+
+        setTimeout(()=>{
+            window.scroll({
+                top: screen.height,
+                behavior: "smooth"
+            })
+        },5000)
 
         play_pause.addEventListener('click',()=>{
             if(play){
