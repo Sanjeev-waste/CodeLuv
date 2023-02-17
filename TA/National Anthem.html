@@ -9,6 +9,10 @@
         body{
             background-color: rgb(25, 197, 236);
         }
+        h1{
+           text-align: center;
+
+        }
         .sw{
             display: flex;
             /* flex-direction: column; */
@@ -56,15 +60,22 @@
             height: 166px;
         }
 
-        #lyrics{
-            margin: 40px;
-            transition: all 0.5s ease-in-out;
+        .sw :where(span,#anthemdiv){
+            align-self: flex-end;
         }
 
-        
+        #anthemdiv{
+            margin: 40px;
+        }
+
+        #play-pause{
+            width: 50px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
+    <h1>Our National Anthem</h1>
     <div class="sw">
 
         <div id="sw1">
@@ -74,11 +85,12 @@
             </div>
             <div id="s3"></div>
         </div>
-        <div>
+        <div id="anthemdiv">
             <div id="song">
-                <audio controls>
+                <audio id="anthem_audio">
                     <source src="National/Anthem.mp3">
                 </audio>
+                <img src="play-button.png" id="play-pause" alt="play-pause" />
             </div>
             <div id="lyrics">
                     Jano Gano Mano Adhinaayako Jayo Hey,<br>
@@ -100,10 +112,28 @@
                     Jayo Jayo Jayo, Jayo Hey<br>
             </div>
         </div>
+
+        <span>
+            <img src="National/salute.png" alt="">
+        </span>
     </div>
 
     <script>
-    
+        const anthem_audio = document.querySelector("#anthem_audio");
+        const play_pause = document.querySelector("#play-pause");
+        let play = true;
+
+        play_pause.addEventListener('click',()=>{
+            if(play){
+                anthem_audio.play();
+                play_pause.src = "pause.png";
+            }else{
+                anthem_audio.pause();
+                play_pause.src = "play-button.png";
+            }
+            play = !play;
+        })
+
     </script>
 </body>
 </html>
