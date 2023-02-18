@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Competitive Programming </title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <style>
         *{
             margin: 0;
@@ -19,7 +20,8 @@
         h1{
             text-align: center;
         }
-        span{
+
+        #nav span{
             display: inline-flex;
             width: 200px;
             height: 100px;
@@ -35,20 +37,65 @@
             text-decoration: none;
             color: #fff;
             font-size: 28px;
+            text-align: center;
+        }
+        #nav{
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+        #main_anime{
+            display: flex;
+        }
+
+        rect{
+            fill: transparent!important;
         }
 
     </style>
 </head>
 <body>
     <h1>Welcome to Competitive Programming </h1>
-    <span>
-        <a href="https://codeforces.com/profile/Sanjeev_waste">Codeforces</a>
-    </span>
-    <span>
-        <a href="https://www.codechef.com/users/sanjeev_20202">Codechef</a>
-    </span>
-    <span>
-        <a href="https://leetcode.com/Sanjeev_PU/">Leetcode</a>
-    </span>
+    <div id="nav">
+
+        <span >
+            <a href="https://codeforces.com/profile/Sanjeev_waste">Codeforces</a>
+        </span>
+        <span >
+            <a href="https://www.codechef.com/users/sanjeev_20202">Codechef</a>
+        </span>
+        <span >
+            <a href="https://leetcode.com/Sanjeev_PU/">Leetcode</a>
+        </span>
+        <span >
+            <a href="https://atcoder.jp/users/sanjeev_PUQ">Atcoder</a>
+        </span>
+        <span >
+            <a href="https://www.youtube.com/channel/UCDa-5uGejj-Z4S216fOR4qg">Youtube</a>
+        </span>
+        <span >
+            <a href="https://www.youtube.com/channel/UCovAyWP3tUXbxnX4KQK50aQ">Youtube - official</a>
+        </span>
+        <span >
+            <a href="https://github.com/Sanjeev2K20">GitHub</a>
+        </span>
+    </div>          
+    
+    <div>
+        <div id="main_anime">
+
+            <span>
+                <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_fq7pwzey.json"  background="transparent"  speed="1"   loop  autoplay></lottie-player>
+            </span>
+            <span>
+                <lottie-player src="https://assets4.lottiefiles.com/private_files/lf30_sxw84pnl.json"  background="transparent"  speed="1"   loop  autoplay></lottie-player>
+                <lottie-player src="https://lottiefiles.com/65012-learning-concept"  background="transparent"  speed="1"   loop  autoplay></lottie-player>
+            </span>
+        </div>
+    </div>
+
+
+
+    
 </body>
 </html>
