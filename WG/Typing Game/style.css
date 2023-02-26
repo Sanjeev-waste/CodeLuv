@@ -14,7 +14,6 @@ body{
     height: 30vh;
     gap: 10px;
     user-select: none;
-
     font-family: cursive;
 }
 
@@ -61,4 +60,46 @@ body{
     background-color: aqua;
     color: rgba(33, 33, 33, 0.797);
     scale: 1.1;
+}
+
+.score-container{
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.inner-score{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    background-color: rgba(33, 33, 33, 0.5);
+    border: 2px solid rgba(33, 33, 33, 0.797);
+}
+
+.inner-score h1{
+    font-size: 30px;
+}
+
+.inner-score p{
+    font-size: 24px;
+}
+
+.inner-score .reset{
+    border: 0;
+    outline: 0;
+    background: firebrick;
+    color: white;
+    font-size: 18px;
+    align-self: flex-end;
+    padding: 5px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    translate: -50% 0;
+}
+
+.inner-score .reset:hover{
+    opacity: 0.6;
 }

@@ -1,10 +1,17 @@
 let show = document.querySelector("#show");
+let scoreElem = document.querySelector('.score');
+let resetElem = document.querySelector('.reset');
 
 // GAME CONSTANTS
 let currWordIndex = 0;
 let currLetterIndex = 0;
-let words = ["piyush","anjali","sonal","sanjeev","varda","rajat","urvashi","jitender","Gulshan","Sameer","priya","sanjana","preet"];
+let score = 0;
+let words = ["piyush","anjali","sonal","sanjeev","varda","rajat","urvashi","jitender","Gulshan","Sameer","priya","sanjana","preet","Neetu","Neha",];
 
+if(localStorage.getItem('score') != null){
+    score = localStorage.getItem('score');
+    scoreElem.innerHTML = score;
+}
 
 const generateLetter = (letter) => {
     letter = letter.toUpperCase();
@@ -42,10 +49,19 @@ window.addEventListener('keypress',(e) => {
             }
             if(currLetterIndex == word.length){
                 setTimeout(()=>{
-                    alert("Typed successfully");
+                    score++;
+                    localStorage.setItem('score',score);
+                    scoreElem.innerHTML = score;
                     load_game();
                 },300);
             }
         }
     }
 });
+
+
+resetElem.addEventListener('click',()=>{
+    localStorage.removeItem('score');
+    scoreElem.innerHTML = '0';
+    score = 0;
+})

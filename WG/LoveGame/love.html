@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        #box{
+            background-color: rgb(4, 5, 5);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+        #inside_box{
+            height: 450px;
+            background-color: rgba(18, 18, 18, 0.733);
+            border-radius: 30% ;
+            position: relative;
+            
+        }
+        h1{
+            position: fixed;
+            top: 10px;
+            color: white;
+        }
+        h2{
+            position: fixed;
+            top: 40px;
+            color: white;
+        }
+        #name1,#name2{
+            font-size: 45px;
+            font-family: 'Times New Roman', Times, serif;
+            color: white;
+            padding: 5px;
+            margin: 5px;
+        }
+        #partner1,#partner2{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 45px;
+            background-color: aqua;
+            border-radius: 30px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+        }
+        #calc{
+            height: 250px;
+            width: 250px;
+            color: #fff;
+            font-size: 22px;
+            border-radius: 50%;
+            /* position: absolute; */
+            background-color: rgba(111, 243, 29,0.5);
+            /* z-index: 1; */
+            /* left: 50%; */
+            /* bottom: 50%; */
+            /* transform: translate(-50%,50%); */
+        }
+
+        #result{
+            font-size: 18px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        #calc:hover{
+            background-color: red;
+            cursor: pointer;
+        }
+        #heart_pic{
+            display: flex;
+            place-items: center;
+            /* position: relative; */
+        }
+        #Percentage_result{
+            height: 300px;
+            width: 300px;
+        }
+        p{
+            height: 250px;
+            width: 250px;
+            border: 2px solid red;
+            text-align: center;
+            border-radius: 20%;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h1>Do you Know How much Your Partner Loves you ?</h1>
+        <h2>Lets Check...</h2>
+        <div id="inside_box">
+            <div>
+                <span id="name1">Enter Your Name </span><br>
+                <span><input id="partner1" type="text"></span><br>
+            </div>
+            <br>
+            <div>
+                <span id="name2">Enter Your Partner Name </span><br>
+                <span><input id="partner2" type="text"></span><br>
+            </div>
+            
+
+           
+            
+            <div id="heart_pic">
+                <br>
+                <button id="calc">Love <br>percentage</button>
+                <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_wMezg6.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;" id="lotty" loop autoplay></lottie-player>
+                <p id="result">Result</p>
+            </div>
+            
+        </div>
+        <br>
+    </div>
+    <script src="/LoveGame/love.js"></script>
+</body>
+</html>
