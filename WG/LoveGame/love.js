@@ -30,9 +30,9 @@ calc.addEventListener('click',()=>{
         console.log("hello");
         result.innerHTML += "<br>Perfect Match! <br> You are made for each other";
     }
-    else if(result.innerHTML >= "90%"){
-        result.innerHTML += "<br>Your Partner loves <br>Keep Going! one day you will be a <br>Perfect Match! <br> You are made for each other";
-    }
+    // else if(result.innerHTML >= "90%"){
+    //     result.innerHTML += "<br>Your Partner loves <br>Keep Going! one day you will be a <br>Perfect Match! <br> You are made for each other";
+    // }
     
     // document.write("Hello");
 
