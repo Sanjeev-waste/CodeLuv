@@ -10,29 +10,33 @@ calc.addEventListener('click',()=>{
         return;
     }
 
+    let percent = 0;
     if(partner1.value.toUpperCase() == partner2.value.toUpperCase())
     {
-        result.innerHTML = "100%";
+        percent = 100;
     }
-    else if(partner1.value.toUpperCase() == "PIYUSH" && partner2.value.toUpperCase() == "SONAL"){
-        result.innerHTML = "100%";
+    else if(partner1.value.toUpperCase() == "PIYUSH" && (partner2.value.toUpperCase() == "SONAL" || partner2.value.toUpperCase() == "ANJALI")){
+        percent = 100;
 
     }
     else if(partner1.value.toUpperCase() == "SHREY" && partner2.value.toUpperCase() == "BUSHRA"){
-        result.innerHTML = "100%";
+        percent = 100;
 
     }
     else{
-        result.innerHTML = Math.round(Math.random()*100) + "%";
+        percent = Math.floor(Math.random()*100);
     }
 
-    if(result.innerHTML == "100%"){
-        console.log("hello");
+    result.innerHTML = `${percent}%`;
+    result.style.setProperty('--percent',percent+"%");
+    if(percent === 100){
         result.innerHTML += "<br>Perfect Match! <br> You are made for each other";
     }
-    // else if(result.innerHTML >= "90%"){
-    //     result.innerHTML += "<br>Your Partner loves <br>Keep Going! one day you will be a <br>Perfect Match! <br> You are made for each other";
-    // }
+    else if(percent >= 90){
+        result.innerHTML += "<br>Your Partner loves you <br>Keep Going! one day you will be a <br>Perfect Match! <br> You are made for each other";
+    }else if(percent >= 80){
+        result.innerHTML += "<br>Your Partner is trustful but still need your support."
+    }
     
     // document.write("Hello");
 
