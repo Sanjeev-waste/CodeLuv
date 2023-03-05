@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <style>
+        body{
+            background-color: black;
+            user-select: none;
+        }
+        h1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        #chess img{
+            margin: 0;
+            padding: 0;
+            position: fixed;
+            top: 20vh;
+            height: 550px;
+            width: 650px;
+            border: 2px solid white;
+            border-radius: 10%;
+        }
+        #main{
+            margin-top: 5vh;
+            margin-left: 50vw;
+            background-color: #0b091a;
+            height: 650px;
+            width: 650px;
+            border: 2px solid white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 55px;
+            border-radius: 30px;
+        }
+        #colck{
+            display: flex;
+            gap: 55px;
+            /* border: 2px solid red; */
+        }
+        #box1, #box2{
+            font-size: 40px;
+            height: 230px;
+            width: 230px;
+            border: 2px solid red;
+            color: white;
+            text-align:center ;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border-radius: 30%;
+            cursor: pointer;
+        }
+        
+        /* :where(#box1,#box2):hover{
+            background-color: red;
+        } */
+
+        .box:hover,.active{
+            background-color: #e84118;
+            /* background-color: white;
+            color: aqua; */
+            /* font-color:#0b091a; */
+        }
+
+        #move1,#move2{
+            position: absolute;
+            top: 10px;
+            right: 50px;
+            font-size: 10px;
+        }
+        #control{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 55px;
+        }
+        button{
+            height: 40px;
+            width: 130px;
+            background-color: black;
+            color: white;
+            border: 2px solid white;
+            border-radius: 10%;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: white;
+            color: black;
+            border: 2px solid red;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>
+        <lottie-player src="https://lottie.host/3c939980-e104-4e2a-a006-3c29c25c5cdf/ZHmNXRBXa8.json" background="transparent" speed="1" style="width: 100px; height: 100px;" loop autoplay></lottie-player>
+        Chess Timer</h1>
+    <div id="chess">
+        <img src="chess2.jpg" alt="chess" >
+    </div>
+    <div id="main">
+        <div id="colck">
+            <span id="box1" class="box"> 
+                <span id="time1">5:00</span>
+                <span id="move1">Move: 0</span>
+            </span>
+            <span id="box2" class="box">
+                <span id="time2">5:00</span>
+                <span id="move2">Move: 0</span>
+            </span>
+        </div>
+        <div id="control">
+            <button id="onoff" data-action="off">Pause</button>
+            <button id="reset">Reset</button>
+
+        </div>
+    </div>
+    
+    
+
+
+    
+    
+</body>
+<script>
+    let box1 = document.querySelector("#box1");
+    let box2 = document.querySelector("#box2");
+
+    let sp_time1 = document.querySelector("#time1");
+    let sp_time2 = document.querySelector("#time2");
+
+    let sp_move1 = document.querySelector("#move1");
+    let sp_move2 = document.querySelector("#move2");
+
+    let reset = document.querySelector("#reset");
+    let onoff = document.querySelector("#onoff");
+    
+    let time1,time2;
+    let move1,move2;
+    let interval1,interval2;
+    let active1 = false;
+    let active2 = false;
+    time1 = time2 = 300
+    move1 = move2 = 0;
+    
+    const formatTime = (element,time) => {
+        let minute = Math.floor(time/60);
+        let second = time%60;
+        let secondDigit = Math.floor(Math.log10(second)) + 1;
+        if(secondDigit == 1 || second == 0)
+            second = "0" + second;
+    
+        element.innerHTML = `${minute}:${second}`;
+    }
+
+    const startTimeBox1 = (increaseTime = 3) => {
+        if(!active1){
+            new Audio('tick.mp3').play();
+            if(move1 != 0)
+                time1 += increaseTime;
+                interval1 = setInterval(()=>{
+                time1--;
+                if(time1 < 0)
+                time1 = 0;
+                formatTime(sp_time1,time1);
+            },1000);
+            active1 = true;
+            active2 = false;
+            if(increaseTime > 0)
+                move1++;
+            sp_move1.innerHTML = ` Move: ${move1}`;
+            box1.classList.add('active');
+            box2.classList.remove('active');
+        }
+        clearInterval(interval2);
+    }
+
+    const startTimeBox2 = (increaseTime = 3) => {
+        if(!active2){
+            new Audio('tick.mp3').play();
+            if(move2 != 0)
+                time2 += increaseTime;
+            interval2 = setInterval(()=>{
+                time2--;
+                if(time2 < 0)
+                time2 = 0;
+                formatTime(sp_time2,time2);
+            },1000);
+            active1 = false;
+            active2 = true;
+            if(increaseTime > 0)
+                move2++;
+            sp_move2.innerHTML = ` Move: ${move2}`;
+            box2.classList.add('active');
+            box1.classList.remove('active');
+        }
+        clearInterval(interval1);
+    }
+
+
+
+    box1.addEventListener('click',()=>{
+        if(onoff.innerHTML.toLowerCase() == 'pause')
+            startTimeBox1();
+    });
+
+    box2.addEventListener('click',()=>{
+        if(onoff.innerHTML.toLowerCase() == 'pause')
+            startTimeBox2();
+    });
+
+    reset.addEventListener('click',()=>{
+        clearInterval(interval1);
+        clearInterval(interval2);
+        time1 = time2 = 300;
+        formatTime(sp_time1,time1);
+        formatTime(sp_time2,time2);
+        move1 = move2 = 0;
+        sp_move1.innerHTML = `Move: 0`;
+        sp_move2.innerHTML = `Move: 0`;
+        box1.classList.remove('active');
+        box2.classList.remove('active');
+        active1 = false;
+        active2 = false;
+    })
+
+    onoff.addEventListener('click',()=>{
+        let action = onoff.getAttribute('data-action').toLowerCase();
+        if(action === 'off'){
+            clearInterval(interval1);
+            clearInterval(interval2);
+            onoff.setAttribute('data-action','on');
+            onoff.innerHTML = 'Resume';
+        }else if(action ==='on'){
+            console.log('herex');
+            if(active1){
+                active1 = false;
+                startTimeBox1(0);
+            }
+            else if(active2){
+                active2 = false;
+                startTimeBox2(0);
+            }
+            onoff.setAttribute('data-action','off');
+            onoff.innerHTML = 'Pause';
+        }
+
+        console.log(action,active1,active2);
+    });
+
+
+ 
+</script>
+
+</html>

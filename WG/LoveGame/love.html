@@ -68,13 +68,6 @@
             /* bottom: 50%; */
             /* transform: translate(-50%,50%); */
         }
-
-        #result{
-            font-size: 18px;
-            justify-content: center;
-            align-items: center;
-            display: flex;
-        }
         #calc:hover{
             background-color: red;
             cursor: pointer;
@@ -88,26 +81,36 @@
             height: 300px;
             width: 300px;
         }
-        p{
+
+
+        #result{
             height: 250px;
             width: 250px;
             border: 2px solid #fff;
             text-align: center;
             position: relative;
             border-radius: 20px;
+            font-size: 18px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
             --percent: 0%;
         }
 
-        p::before{
+        #result::after{
             content: '';
             position: absolute;
             bottom: 0;
             width: 100%;
             height: var(--percent);
             background-color: #f00;
-            border-radius: 20px;
+            border-radius: 0 0 20px 20px;
             mix-blend-mode: difference;
             transition: height 1s linear;
+        }
+
+        #result.hundred::after{
+            border-radius: 20px;
         }
         
     </style>
