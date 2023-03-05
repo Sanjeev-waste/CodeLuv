@@ -44,7 +44,6 @@
         #colck{
             display: flex;
             gap: 55px;
-            /* border: 2px solid red; */
         }
         #box1, #box2{
             font-size: 40px;
@@ -60,16 +59,9 @@
             border-radius: 30%;
             cursor: pointer;
         }
-        
-        /* :where(#box1,#box2):hover{
-            background-color: red;
-        } */
-
+    
         .box:hover,.active{
             background-color: #e84118;
-            /* background-color: white;
-            color: aqua; */
-            /* font-color:#0b091a; */
         }
 
         #move1,#move2{
@@ -104,7 +96,8 @@
 <body>
     <h1>
         <lottie-player src="https://lottie.host/3c939980-e104-4e2a-a006-3c29c25c5cdf/ZHmNXRBXa8.json" background="transparent" speed="1" style="width: 100px; height: 100px;" loop autoplay></lottie-player>
-        Chess Timer</h1>
+        Chess Timer
+    </h1>
     <div id="chess">
         <img src="chess2.jpg" alt="chess" >
     </div>
@@ -126,140 +119,135 @@
         </div>
     </div>
     
+    <script>
+        let box1 = document.querySelector("#box1");
+        let box2 = document.querySelector("#box2");
     
-
-
+        let sp_time1 = document.querySelector("#time1");
+        let sp_time2 = document.querySelector("#time2");
     
+        let sp_move1 = document.querySelector("#move1");
+        let sp_move2 = document.querySelector("#move2");
     
-</body>
-<script>
-    let box1 = document.querySelector("#box1");
-    let box2 = document.querySelector("#box2");
-
-    let sp_time1 = document.querySelector("#time1");
-    let sp_time2 = document.querySelector("#time2");
-
-    let sp_move1 = document.querySelector("#move1");
-    let sp_move2 = document.querySelector("#move2");
-
-    let reset = document.querySelector("#reset");
-    let onoff = document.querySelector("#onoff");
-    
-    let time1,time2;
-    let move1,move2;
-    let interval1,interval2;
-    let active1 = false;
-    let active2 = false;
-    time1 = time2 = 300
-    move1 = move2 = 0;
-    
-    const formatTime = (element,time) => {
-        let minute = Math.floor(time/60);
-        let second = time%60;
-        let secondDigit = Math.floor(Math.log10(second)) + 1;
-        if(secondDigit == 1 || second == 0)
-            second = "0" + second;
-    
-        element.innerHTML = `${minute}:${second}`;
-    }
-
-    const startTimeBox1 = (increaseTime = 3) => {
-        if(!active1){
-            new Audio('tick.mp3').play();
-            if(move1 != 0)
-                time1 += increaseTime;
-                interval1 = setInterval(()=>{
-                time1--;
-                if(time1 < 0)
-                time1 = 0;
-                formatTime(sp_time1,time1);
-            },1000);
-            active1 = true;
-            active2 = false;
-            if(increaseTime > 0)
-                move1++;
-            sp_move1.innerHTML = ` Move: ${move1}`;
-            box1.classList.add('active');
-            box2.classList.remove('active');
-        }
-        clearInterval(interval2);
-    }
-
-    const startTimeBox2 = (increaseTime = 3) => {
-        if(!active2){
-            new Audio('tick.mp3').play();
-            if(move2 != 0)
-                time2 += increaseTime;
-            interval2 = setInterval(()=>{
-                time2--;
-                if(time2 < 0)
-                time2 = 0;
-                formatTime(sp_time2,time2);
-            },1000);
-            active1 = false;
-            active2 = true;
-            if(increaseTime > 0)
-                move2++;
-            sp_move2.innerHTML = ` Move: ${move2}`;
-            box2.classList.add('active');
-            box1.classList.remove('active');
-        }
-        clearInterval(interval1);
-    }
-
-
-
-    box1.addEventListener('click',()=>{
-        if(onoff.innerHTML.toLowerCase() == 'pause')
-            startTimeBox1();
-    });
-
-    box2.addEventListener('click',()=>{
-        if(onoff.innerHTML.toLowerCase() == 'pause')
-            startTimeBox2();
-    });
-
-    reset.addEventListener('click',()=>{
-        clearInterval(interval1);
-        clearInterval(interval2);
-        time1 = time2 = 300;
-        formatTime(sp_time1,time1);
-        formatTime(sp_time2,time2);
+        let reset = document.querySelector("#reset");
+        let onoff = document.querySelector("#onoff");
+        
+        let time1,time2;
+        let move1,move2;
+        let interval1,interval2;
+        let active1 = false;
+        let active2 = false;
+        time1 = time2 = 300
         move1 = move2 = 0;
-        sp_move1.innerHTML = `Move: 0`;
-        sp_move2.innerHTML = `Move: 0`;
-        box1.classList.remove('active');
-        box2.classList.remove('active');
-        active1 = false;
-        active2 = false;
-    })
-
-    onoff.addEventListener('click',()=>{
-        let action = onoff.getAttribute('data-action').toLowerCase();
-        if(action === 'off'){
+        
+        const formatTime = (element,time) => {
+            let minute = Math.floor(time/60);
+            let second = time%60;
+            let secondDigit = Math.floor(Math.log10(second)) + 1;
+            if(secondDigit == 1 || second == 0)
+                second = "0" + second;
+        
+            element.innerHTML = `${minute}:${second}`;
+        }
+    
+        const startTimeBox1 = (increaseTime = 3) => {
+            if(!active1){
+                new Audio('tick.mp3').play();
+                if(move1 != 0)
+                    time1 += increaseTime;
+                    interval1 = setInterval(()=>{
+                    time1--;
+                    if(time1 < 0)
+                    time1 = 0;
+                    formatTime(sp_time1,time1);
+                },1000);
+                active1 = true;
+                active2 = false;
+                if(increaseTime > 0)
+                    move1++;
+                sp_move1.innerHTML = ` Move: ${move1}`;
+                box1.classList.add('active');
+                box2.classList.remove('active');
+            }
+            clearInterval(interval2);
+        }
+    
+        const startTimeBox2 = (increaseTime = 3) => {
+            if(!active2){
+                new Audio('tick.mp3').play();
+                if(move2 != 0)
+                    time2 += increaseTime;
+                interval2 = setInterval(()=>{
+                    time2--;
+                    if(time2 < 0)
+                    time2 = 0;
+                    formatTime(sp_time2,time2);
+                },1000);
+                active1 = false;
+                active2 = true;
+                if(increaseTime > 0)
+                    move2++;
+                sp_move2.innerHTML = ` Move: ${move2}`;
+                box2.classList.add('active');
+                box1.classList.remove('active');
+            }
+            clearInterval(interval1);
+        }
+    
+    
+    
+        box1.addEventListener('click',()=>{
+            if(onoff.innerHTML.toLowerCase() == 'pause')
+                startTimeBox1();
+        });
+    
+        box2.addEventListener('click',()=>{
+            if(onoff.innerHTML.toLowerCase() == 'pause')
+                startTimeBox2();
+        });
+    
+        reset.addEventListener('click',()=>{
             clearInterval(interval1);
             clearInterval(interval2);
-            onoff.setAttribute('data-action','on');
-            onoff.innerHTML = 'Resume';
-        }else if(action ==='on'){
-            console.log('herex');
-            if(active1){
-                active1 = false;
-                startTimeBox1(0);
+            time1 = time2 = 300;
+            formatTime(sp_time1,time1);
+            formatTime(sp_time2,time2);
+            move1 = move2 = 0;
+            sp_move1.innerHTML = `Move: 0`;
+            sp_move2.innerHTML = `Move: 0`;
+            box1.classList.remove('active');
+            box2.classList.remove('active');
+            active1 = false;
+            active2 = false;
+        })
+    
+        onoff.addEventListener('click',()=>{
+            let action = onoff.getAttribute('data-action').toLowerCase();
+            if(action === 'off'){
+                clearInterval(interval1);
+                clearInterval(interval2);
+                onoff.setAttribute('data-action','on');
+                onoff.innerHTML = 'Resume';
+            }else if(action ==='on'){
+                console.log('herex');
+                if(active1){
+                    active1 = false;
+                    startTimeBox1(0);
+                }
+                else if(active2){
+                    active2 = false;
+                    startTimeBox2(0);
+                }
+                onoff.setAttribute('data-action','off');
+                onoff.innerHTML = 'Pause';
             }
-            else if(active2){
-                active2 = false;
-                startTimeBox2(0);
-            }
-            onoff.setAttribute('data-action','off');
-            onoff.innerHTML = 'Pause';
-        }
-
-        console.log(action,active1,active2);
-    });
-
-
- 
-</script>
+    
+            console.log(action,active1,active2);
+        });
+    
+    
+     
+    </script>
+</body>
 
 </html>
